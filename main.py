@@ -59,12 +59,9 @@ def generateFileList():
                                         subroutineStartLine = num
                                 for num, line in enumerate(openedFile, subroutineStartLine):
                                     if re.match(subroutineEnd, line):
-                                        if cppFunctionName == 'xmlLoadFile':
-                                            print(num)
                                         subroutineEndLine = num
                                         break
-                                if cppFunctionName == 'xmlLoadFile' and subroutineStartLine > 0:
-                                    print(f"{subroutineStartLine} {subroutineEndLine}")
-                                    for line in openedFile[subroutineStartLine:subroutineEndLine]:
-                                        print(line)
+                                if cppFunctionName == 'xmlNodeGetName':
+                                    print(f"subroutineStart {subroutineStartLine}")
+                                    print(f"subroutineEnd {subroutineEndLine}")
 generateFileList()
